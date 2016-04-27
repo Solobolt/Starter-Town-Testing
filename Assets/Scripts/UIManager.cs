@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour {
     public GameObject collectablesScreen;
     private bool showCollectables = false;
 
+    public GameObject huggingGUI;
+
 
 	// Use this for initialization
 	void Start () {
@@ -58,6 +60,30 @@ public class UIManager : MonoBehaviour {
             currentPause = Instantiate(pausedScreen) as GameObject;
         }
 
+    }
+    
+    //Enables and dissables the hugging Graphics
+    public void ToggleHuggingGUI(bool isHugging)
+    {
+        if(isHugging == true)
+        {
+            //Show GUI
+            huggingGUI.SetActive(true);
+        }
+        else
+        {
+            //Hide GUI
+            huggingGUI.SetActive(false);
+        }
+    }
+
+    //Toggles a bool
+    public void ToggleVariable(bool b)
+    {
+        if(b == true)
+            b = false;
+        else
+            b = true;
     }
 
     //Toggles the collectable screen

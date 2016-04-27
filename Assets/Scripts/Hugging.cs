@@ -5,6 +5,8 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class Hugging : MonoBehaviour {
 
+    private UIManager uiManager;
+
     public AnimationCurve SlimeFrequencyAndAmplitude;
     public Slider SlimeBar;
     public Slider HugBar;
@@ -29,6 +31,7 @@ public class Hugging : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
         FPSController = this.gameObject.GetComponent<FirstPersonController>();
         frequency = 4;
         maxAmplitude = .6f;
@@ -66,6 +69,9 @@ public class Hugging : MonoBehaviour {
 
         if (IsHugging == true)
         {
+
+           
+
             if (Input.GetKey(KeyCode.E))
             {
 
@@ -103,6 +109,8 @@ public class Hugging : MonoBehaviour {
                     StartedHugging = false;
                     IsHugging = false;
 
+                    uiManager.ToggleHuggingGUI(false);
+
                     HugBar.value = 0;
                     SlimeBar.value = 0;
                     ColourTransfered.value = .2f;
@@ -125,6 +133,8 @@ public class Hugging : MonoBehaviour {
                 StartedHugging = false;
                 IsHugging = false;
 
+                uiManager.ToggleHuggingGUI(false);
+
                 HugBar.value = 0;
                 SlimeBar.value = 0;
                 ColourTransfered.value = .2f;
@@ -137,6 +147,7 @@ public class Hugging : MonoBehaviour {
     {
         if (hit.transform.tag == "Slime")
         {
+            uiManager.ToggleHuggingGUI(true);
             if (FPSController.enabled == true)
                 FPSController.enabled = false;
             IsHugging = true;
