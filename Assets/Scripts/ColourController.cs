@@ -9,6 +9,7 @@ public class ColourController : MonoBehaviour {
     //Determains wether or not the slime fades / gains color to a point. 
     [Tooltip("Ticking this box will stop the slime for slowly returning to a defualt color.")]
     public bool isPlayer = false;
+    public float sprintFade = 30.0f;
 
     //A value to keep track of how saturated the slime is
     private float totalColor;
@@ -56,6 +57,13 @@ public class ColourController : MonoBehaviour {
         if(isPlayer == false)
         {
             FadeToDefault();
+        }
+        else
+        {
+            if(Input.GetKey(KeyCode.LeftShift))
+            {
+                SprintFade();
+            }
         }
 
         //Is affective in update for testing but should be placed in hugging scripts later to lower the computing power.
@@ -106,6 +114,16 @@ public class ColourController : MonoBehaviour {
         redValue = TempRedValue;
         greenValue = TempGreenValue;
         blueValue = TempBlueValue;
+
+        SetColors();
+    }
+    
+    //Slowly fades the players color if they are sprinting
+    public void SprintFade()
+    {
+        redValue -= 1 / sprintFade * Time.deltaTime;
+        blueValue -= 1 / sprintFade * Time.deltaTime;
+        greenValue -= 1 / sprintFade * Time.deltaTime;
 
         SetColors();
     }
