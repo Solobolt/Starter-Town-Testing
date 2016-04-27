@@ -9,7 +9,7 @@ public class ColourController : MonoBehaviour {
     //A value to keep track of how saturated the slime is
     private float totalColor;
 
-    //Holds colour values of the slime
+    //Holds color values of the slime
     [Range(0.0f, 1.0f)]
     public float redValue = 0.0f;
     private float redRatios = 0.0f;
@@ -40,7 +40,7 @@ public class ColourController : MonoBehaviour {
     //changes the color of public renderer
     private void SetColors()
     {
-        //Finds the total of the colour values 
+        //Finds the total of the color values 
         totalColor = redValue + blueValue + greenValue;
 
         //Breaks the values up into a ratio to be displayed
@@ -48,12 +48,12 @@ public class ColourController : MonoBehaviour {
         blueRatios = GetRatio(blueValue);
         greenRatios = GetRatio(greenValue);
 
-        //Renders the 3 main colours
+        //Renders the 3 main colors
         rend.material.color = Color.Lerp(rend.material.color, Color.red, redRatios);
         rend.material.color = Color.Lerp(rend.material.color, Color.blue, blueRatios);
         rend.material.color = Color.Lerp(rend.material.color, Color.green, greenRatios);
         
-        //Renders white and black over the colours if the is too little or too much colour
+        //Renders white and black over the colors if the is too little or too much color
         whiteValue = Mathf.Pow((1 - (totalColor)), 3);
         rend.material.color = Color.Lerp(rend.material.color, Color.white, whiteValue);
 
@@ -61,25 +61,49 @@ public class ColourController : MonoBehaviour {
         rend.material.color = Color.Lerp(rend.material.color, Color.black, blackValue);
     }
 
-    //Swap Colours
-    public void SwapColors(ColourController otherSlime)
+    //Takes the other slimes colors and leaves is white
+    public void StealColors(ColourController otherSlime)
     {
-        //Stores the players colour
-        float tempRed = redValue;
-        float tempBlue = blueValue;
-        float tempGreen = greenValue;
-
-        //Takes the other slimes colour
+        //Takes the other slimes color
         redValue = otherSlime.redValue;
         blueValue = otherSlime.blueValue;
         greenValue = otherSlime.greenValue;
 
-        //Replaces the other slimes colour
+        //Replaces the other slimes color
+        otherSlime.redValue = 0.0f;
+        otherSlime.blueValue = 0.0f;
+        otherSlime.greenValue = 0.0f;
+    }
+
+    //Swap Colors
+    public void SwapColors(ColourController otherSlime)
+    {
+        //Stores the players color
+        float tempRed = redValue;
+        float tempBlue = blueValue;
+        float tempGreen = greenValue;
+
+        //Takes the other slimes color
+        redValue = otherSlime.redValue;
+        blueValue = otherSlime.blueValue;
+        greenValue = otherSlime.greenValue;
+
+        //Replaces the other slimes color
         otherSlime.redValue = tempRed;
         otherSlime.blueValue = tempBlue;
         otherSlime.greenValue = tempGreen;
 
-        //Make the colour change
+        //Make the color change
+        SetColors();
+    }
+
+    //Removes all color from the slime and set it to white
+    void CleanSlime()
+    {
+        redValue = 0.0f;
+        greenValue = 0.0f;
+        blueValue = 0.0f;
+
         SetColors();
     }
 
