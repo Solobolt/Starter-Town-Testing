@@ -41,6 +41,7 @@ public class GateController : MonoBehaviour {
             if(colorController.redValue >= redReq && colorController.blueValue >= blueReq && colorController.greenValue >= greenReq)
             {
                 isOpen = true;
+                colorController.CleanSlime();
             }
         }
 

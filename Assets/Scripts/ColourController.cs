@@ -6,9 +6,28 @@ public class ColourController : MonoBehaviour {
     //Holds the renderer of the mesh that should be changed
     public Renderer rend;
 
+    //Determains wether or not the slime fades / gains color to a point. 
+    [Tooltip("Ticking this box will stop the slime for slowly returning to a defualt color.")]
+    public bool isPlayer = false;
+
     //A value to keep track of how saturated the slime is
     private float totalColor;
 
+    //Hold the defualt colors for the slime
+    [Header("Defualt Colors")]
+    [Range(0.0f, 1.0f)]
+    public float defualtRed = 0.5f;
+
+    [Range(0.0f, 1.0f)]
+    public float defualtGreen = 0.0f;
+
+    [Range(0.0f, 1.0f)]
+    public float defualtBlue = 0.5f;
+
+    public float FadeTime;
+
+    [Space(10)]
+    [Header("Current Colors")]
     //Holds color values of the slime
     [Range(0.0f, 1.0f)]
     public float redValue = 0.0f;
@@ -22,7 +41,6 @@ public class ColourController : MonoBehaviour {
     public float blueValue = 0.0f;
     private float blueRatios = 0.0f;
 
-    [Space(10)]
     private float blackValue = 0.01f;
     private float whiteValue = 0.01f;
 
@@ -33,6 +51,13 @@ public class ColourController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        //If the slime is not the player then run fade to default
+        if(isPlayer == false)
+        {
+            FadeToDefault();
+        }
+
         //Is affective in update for testing but should be placed in hugging scripts later to lower the computing power.
         SetColors();
     }
@@ -76,11 +101,84 @@ public class ColourController : MonoBehaviour {
     }
 
     //Changes the colour to a specific value
-    public void ChangeColor(float _redValue,float _greenValue,float _blueValue)
+    public void ChangeColor(float TempRedValue,float TempGreenValue,float TempBlueValue)
     {
-        redValue = _redValue;
-        greenValue = _greenValue;
-        blueValue = _blueValue;
+        redValue = TempRedValue;
+        greenValue = TempGreenValue;
+        blueValue = TempBlueValue;
+
+        SetColors();
+    }
+
+    //Slowly changes the color to the defualt color
+    void FadeToDefault()
+    {
+
+        //Fades red value
+        if(redValue > defualtRed)
+        {
+            redValue -= 1 / FadeTime * Time.deltaTime;
+            if(redValue < defualtRed)
+            {
+                redValue = defualtRed;
+            }
+        }
+
+        if (redValue < defualtRed)
+        {
+            redValue += 1 / FadeTime * Time.deltaTime;
+            if (redValue > defualtRed)
+            {
+                redValue = defualtRed;
+            }
+
+        }
+
+        //Fades blue value
+        if (blueValue > defualtBlue)
+        {
+            blueValue -= 1 / FadeTime * Time.deltaTime;
+            if (blueValue < defualtBlue)
+            {
+                blueValue = defualtBlue;
+            }
+        }
+
+        if (blueValue < defualtBlue)
+        {
+            blueValue += 1 / FadeTime * Time.deltaTime;
+            if (blueValue > defualtBlue)
+            {
+                blueValue = defualtBlue;
+            }
+
+        }
+
+        //Fades Green value
+        if(greenValue > defualtGreen)
+        {
+            greenValue -= 1 / FadeTime * Time.deltaTime;
+            if(greenValue < defualtGreen)
+            {
+                greenValue = defualtGreen;
+            }
+        }
+
+        if (greenValue < defualtGreen)
+        {
+            greenValue += 1 / FadeTime * Time.deltaTime;
+            if (greenValue > defualtGreen)
+            {
+                greenValue = defualtGreen;
+            }
+
+        }
+
+        /*
+        Mathf.Lerp(redValue,defualtRed,FadeTime);
+        Mathf.Lerp(greenValue,defualtGreen,FadeTime);
+        Mathf.Lerp(blueValue,defualtBlue,FadeTime);
+        */
 
         SetColors();
     }
@@ -108,7 +206,7 @@ public class ColourController : MonoBehaviour {
     }
 
     //Removes all color from the slime and set it to white
-    void CleanSlime()
+    public void CleanSlime()
     {
         redValue = 0.0f;
         greenValue = 0.0f;
