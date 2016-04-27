@@ -64,14 +64,6 @@ public class Hugging : MonoBehaviour {
         hugMaxValue = HugBar.value + .1f;
         hugMinValue = hugMaxValue - .2f;
 
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            if (FPSController.enabled == true)
-                FPSController.enabled = false;
-            IsHugging = true;
-        }
-
         if (IsHugging == true)
         {
             if (Input.GetKey(KeyCode.E))
@@ -115,13 +107,7 @@ public class Hugging : MonoBehaviour {
                     SlimeBar.value = 0;
                     ColourTransfered.value = .2f;
                 }
-
-
-
-
             }
-
-
             if (Input.GetKeyDown(KeyCode.S))
             {
                 for (int i = 0; i < SlimeFrequencyAndAmplitude.length; i++)
@@ -143,18 +129,17 @@ public class Hugging : MonoBehaviour {
                 SlimeBar.value = 0;
                 ColourTransfered.value = .2f;
             }
-
-
-
-
-
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    //Detects if the play interacts with another slime
+    void OnControllerColliderHit(ControllerColliderHit hit)
     {
-
+        if (hit.transform.tag == "Slime")
+        {
+            if (FPSController.enabled == true)
+                FPSController.enabled = false;
+            IsHugging = true;
+        }
     }
-
-
-    }
+}
