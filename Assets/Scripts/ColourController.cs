@@ -75,6 +75,16 @@ public class ColourController : MonoBehaviour {
         otherSlime.greenValue = 0.0f;
     }
 
+    //Changes the colour to a specific value
+    public void ChangeColor(float _redValue,float _greenValue,float _blueValue)
+    {
+        redValue = _redValue;
+        greenValue = _greenValue;
+        blueValue = _blueValue;
+
+        SetColors();
+    }
+
     //Swap Colors
     public void SwapColors(ColourController otherSlime)
     {
