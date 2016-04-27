@@ -99,9 +99,25 @@ public class ColourController : MonoBehaviour {
     public void StealColors(ColourController otherSlime)
     {
         //Takes the other slimes color
-        redValue = otherSlime.redValue;
-        blueValue = otherSlime.blueValue;
-        greenValue = otherSlime.greenValue;
+        if (redValue >= 1)
+        {
+            redValue = 1;
+        }
+        else
+            redValue += otherSlime.redValue;
+        if (blueValue >= 1)
+        {
+            blueValue = 1;
+        }
+        else
+            blueValue += otherSlime.blueValue;
+
+        if (greenValue >= 1)
+        {
+            greenValue = 1;
+        }
+        else
+            greenValue += otherSlime.greenValue;
 
         //Replaces the other slimes color
         otherSlime.redValue = 0.0f;

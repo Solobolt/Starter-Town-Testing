@@ -6,6 +6,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class Hugging : MonoBehaviour {
 
     private UIManager uiManager;
+    private ColourController colourController;
 
     public AnimationCurve SlimeFrequencyAndAmplitude;
     public Slider SlimeBar;
@@ -27,11 +28,13 @@ public class Hugging : MonoBehaviour {
     private bool StartedHugging;
     FirstPersonController FPSController;
 
+    public ColourController TargetSlime;
 
     // Use this for initialization
     void Start ()
     {
         uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+        colourController = this.gameObject.GetComponent<ColourController>();
         FPSController = this.gameObject.GetComponent<FirstPersonController>();
         frequency = 4;
         maxAmplitude = .6f;
@@ -54,8 +57,8 @@ public class Hugging : MonoBehaviour {
             SlimeFrequencyAndAmplitude.preWrapMode = WrapMode.PingPong;
         SlimeFrequencyAndAmplitude.postWrapMode = WrapMode.PingPong;
 
-        SlimeFrequencyAndAmplitude.RemoveKey(0);
-        SlimeFrequencyAndAmplitude.RemoveKey(frequency);
+        //SlimeFrequencyAndAmplitude.RemoveKey(0);
+        //SlimeFrequencyAndAmplitude.RemoveKey(frequency);
 
         //SlimeFrequencyAndAmplitude.AddKey(.5f, -2.5f);
 
@@ -94,6 +97,32 @@ public class Hugging : MonoBehaviour {
 
                 if (ColourTransfered.value <= 0)
                 {
+                    for (int i = 0; i < SlimeFrequencyAndAmplitude.length + 3; i++)
+                    {
+                        SlimeFrequencyAndAmplitude.RemoveKey(0);
+                    }
+
+                    for (int i = 0; i < frequency; i++)
+                    {
+                        SlimeFrequencyAndAmplitude.AddKey((Random.Range(minBarSpeed, maxBarSpeed)), (Random.Range(minAmplitude, maxAmplitude)));
+                    }
+
+                    if (FPSController.enabled == false)
+                        FPSController.enabled = true;
+                    StartedHugging = false;
+                    IsHugging = false;
+
+                    uiManager.ToggleHuggingGUI(false);
+
+                    HugBar.value = 0;
+                    SlimeBar.value = 0;
+                    ColourTransfered.value = .2f;
+                }
+
+                if (ColourTransfered.value >= 1)
+                {
+                    colourController.StealColors(TargetSlime);
+
                     for (int i = 0; i < SlimeFrequencyAndAmplitude.length; i++)
                     {
                         SlimeFrequencyAndAmplitude.RemoveKey(0);
@@ -118,7 +147,7 @@ public class Hugging : MonoBehaviour {
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
-                for (int i = 0; i < SlimeFrequencyAndAmplitude.length; i++)
+                for (int i = 0; i < SlimeFrequencyAndAmplitude.length + 3; i++)
                 {
                     SlimeFrequencyAndAmplitude.RemoveKey(0);
                 }
@@ -147,6 +176,7 @@ public class Hugging : MonoBehaviour {
     {
         if (hit.transform.tag == "Slime")
         {
+            TargetSlime = hit.gameObject.GetComponent<ColourController>();
             uiManager.ToggleHuggingGUI(true);
             if (FPSController.enabled == true)
                 FPSController.enabled = false;
