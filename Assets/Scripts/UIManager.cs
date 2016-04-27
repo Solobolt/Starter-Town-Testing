@@ -67,13 +67,23 @@ public class UIManager : MonoBehaviour {
         {
             showCollectables = false;
             //Hide UI
-            collectablesScreen.gameObject.SetActive(false);
+            if(collectablesScreen.gameObject.activeInHierarchy)
+            {
+                collectablesScreen.gameObject.SetActive(false);
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
         }
         else
         {
             showCollectables = true;
             //Show UI
-            collectablesScreen.gameObject.SetActive(true);
+            if (!(collectablesScreen.gameObject.activeInHierarchy))
+            {
+                collectablesScreen.gameObject.SetActive(true);
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Confined;
+            }
         }
 
     }
