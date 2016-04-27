@@ -25,7 +25,8 @@ public class ColourController : MonoBehaviour {
     [Range(0.0f, 1.0f)]
     public float defualtBlue = 0.5f;
 
-    public float FadeTime;
+    [Range(0.01f, 30.0f)]
+    public float FadeTime = 20.0f;
 
     [Space(10)]
     [Header("Current Colors")]
