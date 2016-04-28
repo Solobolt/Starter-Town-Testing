@@ -35,8 +35,10 @@ public class gameManager : MonoBehaviour {
     public int glowingSlimesCollected;
 
     aiManager AIManager;
+	public audioManager AudioManager;
 
     bool night = false;
+	bool day = false;
 
     // Use this for initialization
     void Start () {
@@ -65,8 +67,18 @@ public class gameManager : MonoBehaviour {
             {
                 night = false;
                 AIManager.IsNight();
+				AudioManager.bgmPlay (0);
             }
         }
+		if(transform.rotation.x >= 0 && transform.rotation.x <= 1)
+		{
+			day = true;
+			if(day && transform.rotation.x <= 89)
+			{
+				day = false;
+				AudioManager.bgmPlay(1);
+			}
+		}
         //Checks if the day/night cycle is paused.
         if (!Pause)
         {

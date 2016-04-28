@@ -770,7 +770,7 @@ MonoBehaviour:
   defualtRed: 0.069
   defualtGreen: 0
   defualtBlue: 0.065
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0.069
   greenValue: 0
   blueValue: 0.077
@@ -905,7 +905,7 @@ MonoBehaviour:
   defualtRed: 0.069
   defualtGreen: 0
   defualtBlue: 0.065
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0.069
   greenValue: 0
   blueValue: 0.077
@@ -1058,7 +1058,7 @@ MonoBehaviour:
   defualtRed: 0
   defualtGreen: 0.066
   defualtBlue: 0
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0
   greenValue: 0
   blueValue: 0
@@ -1216,7 +1216,7 @@ MonoBehaviour:
   defualtRed: 1
   defualtGreen: 0
   defualtBlue: 1
-  FadeTime: 20
+  FadeTime: 30
   redValue: 1
   greenValue: 0
   blueValue: 1
@@ -2071,7 +2071,7 @@ MonoBehaviour:
   defualtRed: 0
   defualtGreen: 0.066
   defualtBlue: 0
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0
   greenValue: 0
   blueValue: 0
@@ -2251,7 +2251,7 @@ MonoBehaviour:
   defualtRed: 0
   defualtGreen: 0.066
   defualtBlue: 0
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0
   greenValue: 0
   blueValue: 0
@@ -2351,7 +2351,7 @@ MonoBehaviour:
   defualtRed: 0.069
   defualtGreen: 0
   defualtBlue: 0.065
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0.069
   greenValue: 0
   blueValue: 0.077
@@ -2513,7 +2513,7 @@ MonoBehaviour:
   defualtRed: 0.069
   defualtGreen: 0
   defualtBlue: 0.065
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0.069
   greenValue: 0
   blueValue: 0.077
@@ -2627,6 +2627,7 @@ MonoBehaviour:
   richColoursCollected: []
   rareSlimesCollected: []
   glowingSlimesCollected: 0
+  AudioManager: {fileID: 1879775993}
 --- !u!4 &833640671
 Transform:
   m_ObjectHideFlags: 0
@@ -2758,7 +2759,7 @@ MonoBehaviour:
   defualtRed: 0.069
   defualtGreen: 0
   defualtBlue: 0.065
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0.069
   greenValue: 0
   blueValue: 0.077
@@ -2918,11 +2919,11 @@ MonoBehaviour:
   rend: {fileID: 133009827}
   isPlayer: 1
   sprintFade: 30
-  defualtRed: 0.473
-  defualtGreen: 0.139
-  defualtBlue: 0.461
+  defualtRed: 0
+  defualtGreen: 0
+  defualtBlue: 0
   FadeTime: 10
-  redValue: 1
+  redValue: 0
   greenValue: 0
   blueValue: 0
 --- !u!114 &866558284
@@ -3070,7 +3071,7 @@ MonoBehaviour:
   defualtRed: 0.069
   defualtGreen: 0
   defualtBlue: 0.065
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0.069
   greenValue: 0
   blueValue: 0.077
@@ -3133,7 +3134,7 @@ MonoBehaviour:
   defualtRed: 0.069
   defualtGreen: 0
   defualtBlue: 0.065
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0.069
   greenValue: 0
   blueValue: 0.077
@@ -3267,7 +3268,7 @@ MonoBehaviour:
   defualtRed: 0.069
   defualtGreen: 0
   defualtBlue: 0.065
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0.069
   greenValue: 0
   blueValue: 0.077
@@ -3755,7 +3756,7 @@ MonoBehaviour:
   defualtRed: 0
   defualtGreen: 0.066
   defualtBlue: 0
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0
   greenValue: 0
   blueValue: 0
@@ -3939,7 +3940,7 @@ MonoBehaviour:
   defualtRed: 0
   defualtGreen: 0.066
   defualtBlue: 0
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0
   greenValue: 0
   blueValue: 0
@@ -4499,7 +4500,7 @@ MonoBehaviour:
   defualtRed: 0
   defualtGreen: 1
   defualtBlue: 0
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0
   greenValue: 0
   blueValue: 0
@@ -4598,7 +4599,7 @@ MonoBehaviour:
   defualtRed: 0
   defualtGreen: 0.066
   defualtBlue: 0
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0
   greenValue: 0
   blueValue: 0
@@ -4715,7 +4716,7 @@ MonoBehaviour:
   defualtRed: 0
   defualtGreen: 0.066
   defualtBlue: 0
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0
   greenValue: 0
   blueValue: 0
@@ -4840,7 +4841,7 @@ MonoBehaviour:
   defualtRed: 0
   defualtGreen: 0.066
   defualtBlue: 0
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0
   greenValue: 0
   blueValue: 0
@@ -4978,7 +4979,7 @@ MonoBehaviour:
   defualtRed: 0.069
   defualtGreen: 0
   defualtBlue: 0.065
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0.069
   greenValue: 0
   blueValue: 0.077
@@ -5094,7 +5095,7 @@ MonoBehaviour:
   defualtRed: 1
   defualtGreen: 0
   defualtBlue: 1
-  FadeTime: 20
+  FadeTime: 30
   redValue: 1
   greenValue: 0
   blueValue: 1
@@ -5624,7 +5625,7 @@ MonoBehaviour:
   defualtRed: 0
   defualtGreen: 0.066
   defualtBlue: 0
-  FadeTime: 20
+  FadeTime: 30
   redValue: 0
   greenValue: 0
   blueValue: 0
@@ -5983,6 +5984,18 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_IsPrefabParent: 0
@@ -6187,6 +6200,204 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1869404815}
+--- !u!1 &1879775989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1879775991}
+  - 82: {fileID: 1879775990}
+  - 114: {fileID: 1879775993}
+  - 82: {fileID: 1879775992}
+  m_Layer: 0
+  m_Name: AUdioManagerTemp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1879775990
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1879775989}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4bc37951241ffdc4283fa4e989eeb82a, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &1879775991
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1879775989}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -201.73149, y: -83.24398, z: 657.3109}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+--- !u!82 &1879775992
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1879775989}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &1879775993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1879775989}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb65173a561b4e47b5afa17ab6af991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  efxSource: {fileID: 1879775992}
+  bgmSource: {fileID: 1879775990}
+  bgmClips:
+  - {fileID: 8300000, guid: f2d19c74959871d44b33ae7cbd6cf9cc, type: 3}
+  - {fileID: 8300000, guid: 4bc37951241ffdc4283fa4e989eeb82a, type: 3}
+  lowPitchRange: 0.95
+  highPitchRange: 1.05
+  DontDestroy: 0
+  FadeSpeed: 0.9
 --- !u!1 &1891720065
 GameObject:
   m_ObjectHideFlags: 0
