@@ -53,6 +53,7 @@ public class UIManager : MonoBehaviour {
             //Hide UI
             Destroy(currentPause.gameObject);
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
         else
         {
@@ -61,8 +62,9 @@ public class UIManager : MonoBehaviour {
             collectablesScreen.gameObject.SetActive(false);
             //Show UI
             currentPause = Instantiate(pausedScreen) as GameObject;
-            FPC.enabled = true;
+            FPC.enabled = false;
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
     }
