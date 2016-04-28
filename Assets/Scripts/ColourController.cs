@@ -142,6 +142,22 @@ public class ColourController : MonoBehaviour {
         blueValue -= 1 / sprintFade * Time.deltaTime;
         greenValue -= 1 / sprintFade * Time.deltaTime;
 
+        //Takes the other slimes color
+        if (redValue <= 0)
+        {
+            redValue = 0;
+        }
+
+        if (blueValue <= 0)
+        {
+            blueValue = 0;
+        }
+
+        if (greenValue <= 0)
+        {
+            greenValue = 0;
+        }
+
         SetColors();
     }
 

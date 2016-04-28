@@ -97,7 +97,7 @@ public class Hugging : MonoBehaviour {
 
                 if (ColourTransfered.value <= 0)
                 {
-                    for (int i = 0; i < SlimeFrequencyAndAmplitude.length + 3; i++)
+                    for (int i = 0; i < frequency; i++)
                     {
                         SlimeFrequencyAndAmplitude.RemoveKey(0);
                     }
@@ -123,7 +123,7 @@ public class Hugging : MonoBehaviour {
                 {
                     colourController.StealColors(TargetSlime);
 
-                    for (int i = 0; i < SlimeFrequencyAndAmplitude.length; i++)
+                    for (int i = 0; i < frequency; i++)
                     {
                         SlimeFrequencyAndAmplitude.RemoveKey(0);
                     }
@@ -147,7 +147,7 @@ public class Hugging : MonoBehaviour {
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
-                for (int i = 0; i < SlimeFrequencyAndAmplitude.length + 3; i++)
+                for (int i = 0; i < frequency; i++)
                 {
                     SlimeFrequencyAndAmplitude.RemoveKey(0);
                 }

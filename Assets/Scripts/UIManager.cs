@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 using System.Collections;
 
 public class UIManager : MonoBehaviour {
@@ -13,7 +14,7 @@ public class UIManager : MonoBehaviour {
     private bool showCollectables = false;
 
     public GameObject huggingGUI;
-
+    public FirstPersonController FPC;
 
 	// Use this for initialization
 	void Start () {
@@ -47,9 +48,11 @@ public class UIManager : MonoBehaviour {
         {
             isPaused = false;
             Time.timeScale = 1;
+            FPC.enabled = true;
 
             //Hide UI
             Destroy(currentPause.gameObject);
+            Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
@@ -58,6 +61,8 @@ public class UIManager : MonoBehaviour {
             collectablesScreen.gameObject.SetActive(false);
             //Show UI
             currentPause = Instantiate(pausedScreen) as GameObject;
+            FPC.enabled = true;
+            Cursor.lockState = CursorLockMode.None;
         }
 
     }
@@ -108,7 +113,7 @@ public class UIManager : MonoBehaviour {
             {
                 collectablesScreen.gameObject.SetActive(true);
                 Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.lockState = CursorLockMode.None;
             }
         }
 
