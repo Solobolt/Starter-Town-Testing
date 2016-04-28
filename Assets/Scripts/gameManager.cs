@@ -4,7 +4,8 @@ using System.Collections;
 public class gameManager : MonoBehaviour {
 
     //This value is equal to seconds. 
-    public float timer;
+    [Range(0.1f,1000.0f)]
+    public float timer = 120.0f;
 
     //allows other scripts to call functions.
     public static gameManager instance = null;
@@ -39,8 +40,6 @@ public class gameManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //This time is equal to 2 minutes. This is how long a full day night cycle will take.
-        timer = 120;
 
     //Set the size of these arrays.
     rareSlimesCollected = new string[numberOfRareSlimes];
