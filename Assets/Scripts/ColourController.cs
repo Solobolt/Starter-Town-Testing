@@ -234,6 +234,36 @@ public class ColourController : MonoBehaviour {
         SetColors();
     }
 
+    //Slowly Mixes the two limes colors
+    public void MixColors(ColourController otherSlime)
+    {
+        //Stores the players color
+        float tempRed = redValue;
+        float tempBlue = blueValue;
+        float tempGreen = greenValue;
+
+        //Stores the other slimes color
+        float tempSlimeRed = otherSlime.redValue;
+        float tempSlimeGreen = otherSlime.greenValue;
+        float tempSlimeBlue = otherSlime.blueValue;
+
+        //Mixes the Players Colors towards the other slime
+        Mathf.Lerp(redValue, tempSlimeRed, 2.0f * Time.deltaTime);
+        Mathf.Lerp(greenValue, tempSlimeGreen, 2.0f * Time.deltaTime);
+        Mathf.Lerp(blueValue, tempSlimeBlue, 2.0f * Time.deltaTime);
+
+        //Mixes the other Slimes Colors towards the players
+        Mathf.Lerp(otherSlime.redValue, tempRed, 2.0f * Time.deltaTime);
+        Mathf.Lerp(otherSlime.greenValue, tempGreen, 2.0f * Time.deltaTime);
+        Mathf.Lerp(otherSlime.blueValue, tempBlue, 2.0f * Time.deltaTime);
+
+        //Make the color change
+        SetColors();
+
+        //Sets the color on the other slime too
+        otherSlime.SetColors();
+    }
+
     //Swap Colors
     public void SwapColors(ColourController otherSlime)
     {
