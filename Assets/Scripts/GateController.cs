@@ -33,6 +33,8 @@ public class GateController : MonoBehaviour {
     //Opens the gate if the player is the correct Color
     void OnCollisionEnter(Collision coll)
     {
+        print("Hit");
+
         //Checks that it is the player interacting with the door
         if(coll.gameObject.tag == "Player")
         {
