@@ -23,10 +23,14 @@ public class Hugging : MonoBehaviour {
     public float transferRate;
     public int frequency;
 
+	GameObject currentSlime;
+	
     public bool IsPlayer;
-    private bool IsHugging;
+    public bool IsHugging;
+	public bool gettingHugged;
     private bool StartedHugging;
     FirstPersonController FPSController;
+	public aiSlime AISlime;
 
     public ColourController TargetSlime;
 
@@ -67,6 +71,29 @@ public class Hugging : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+		RaycastHit hit;
+		Vector3 fwd = transform.TransformDirection (Vector3.forward);
+		Debug.DrawRay (transform.position, -Vector3.up, Color.blue);
+		if (Physics.Raycast (transform.position, fwd,out hit, 1))
+		{
+			//print ("hit");
+			if (hit.transform.tag == "Slime")
+			{
+				if (gettingHugged) {
+					
+				}
+				ColourController colour = hit.transform.gameObject.GetComponent<ColourController> ();
+				if (colour.greenValue >= colour.defualtGreen - .10f && colour.redValue >= colour.defualtRed - .10f && colour.blueValue >= colour.defualtBlue - .10f) {
+					TargetSlime = hit.transform.gameObject.GetComponent<ColourController> ();
+					uiManager.ToggleHuggingGUI (true);
+					if (FPSController.enabled == true)
+						FPSController.enabled = false;
+
+					IsHugging = true;
+				}
+			}
+		}
+		
         hugMaxValue = HugBar.value + .1f;
         hugMinValue = hugMaxValue - .2f;
 
@@ -75,7 +102,7 @@ public class Hugging : MonoBehaviour {
 
            
 
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.Space))
             {
 
                 StartedHugging = true;
@@ -122,6 +149,11 @@ public class Hugging : MonoBehaviour {
                 if (ColourTransfered.value >= 1)
                 {
                     colourController.StealColors(TargetSlime);
+					if (gettingHugged) 
+					{
+						AISlime = currentSlime.GetComponent<aiSlime> ();
+//						AISlime.OutCome (true);
+					}
 
                     for (int i = 0; i < frequency; i++)
                     {
@@ -170,17 +202,24 @@ public class Hugging : MonoBehaviour {
             }
         }
     }
+	
+	public void GettingHugged(GameObject OtherSlime)
+	{
+		currentSlime = OtherSlime;
+		gettingHugged = true;
+
+	}
 
     //Detects if the play interacts with another slime
-    void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.transform.tag == "Slime")
-        {
-            TargetSlime = hit.gameObject.GetComponent<ColourController>();
-            uiManager.ToggleHuggingGUI(true);
-            if (FPSController.enabled == true)
-                FPSController.enabled = false;
-            IsHugging = true;
-        }
-    }
+   // void OnControllerColliderHit(ControllerColliderHit hit)
+   // {
+    //    if (hit.transform.tag == "Slime")
+     //   {
+     //       TargetSlime = hit.gameObject.GetComponent<ColourController>();
+      //      uiManager.ToggleHuggingGUI(true);
+      //      if (FPSController.enabled == true)
+       //         FPSController.enabled = false;
+       //     IsHugging = true;
+       // }
+    //}
 }

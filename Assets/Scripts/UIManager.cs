@@ -16,6 +16,13 @@ public class UIManager : MonoBehaviour {
     public GameObject huggingGUI;
     public FirstPersonController FPC;
 
+	public GameObject selectIcon;
+	public string currentSelectedHug;
+	public GameObject hug1;
+	public GameObject hug2;
+	public GameObject hug3;
+	public GameObject hug4;
+
 	// Use this for initialization
 	void Start () {
         collectablesScreen.gameObject.SetActive(false);
@@ -27,6 +34,30 @@ public class UIManager : MonoBehaviour {
         {
             TogglePause();
         }
+
+		if (Input.GetKeyDown (KeyCode.Alpha1))
+		{
+			currentSelectedHug = "Happy";
+			selectIcon.gameObject.transform.position = hug1.transform.position;
+		}
+
+		if (Input.GetKeyDown (KeyCode.Alpha2))
+		{
+			currentSelectedHug = "Theif";
+			selectIcon.gameObject.transform.position = hug2.transform.position;
+		}
+
+		if (Input.GetKeyDown (KeyCode.Alpha3))
+		{
+			currentSelectedHug = "Bear";
+			selectIcon.gameObject.transform.position = hug3.transform.position;
+		}
+
+		if (Input.GetKeyDown (KeyCode.Alpha4))
+		{
+			currentSelectedHug = "Unknown";
+			selectIcon.gameObject.transform.position = hug4.transform.position;
+		}
 	}
 
     //Exits the game
