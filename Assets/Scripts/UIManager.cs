@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         collectablesScreen.gameObject.SetActive(false);
+		currentSelectedHug = "Happy";
 	}
 	
 	// Update is called once per frame
