@@ -115,13 +115,11 @@ public class Hugging : MonoBehaviour {
         if (IsHugging == true)
         {
 			Debug.Log ("1");
-			if (!hasCreatedHug) 
-			{
+			if (!hasCreatedHug) {
 				
 			
-				for (int i = 0; i < frequency; i++)
-				{
-					SlimeFrequencyAndAmplitude.RemoveKey(0);
+				for (int i = 0; i < frequency; i++) {
+					SlimeFrequencyAndAmplitude.RemoveKey (0);
 				}
 
 				if (uiManager.currentSelectedHug == "Happy") {
@@ -133,8 +131,7 @@ public class Hugging : MonoBehaviour {
 					for (int i = 0; i < frequency; i++) {
 						SlimeFrequencyAndAmplitude.AddKey ((Random.Range (minBarSpeed, maxBarSpeed)), (Random.Range (minAmplitude, maxAmplitude)));
 					}
-				} 
-				else if (uiManager.currentSelectedHug == "Theif") {
+				} else if (uiManager.currentSelectedHug == "Theif") {
 					frequency = 4;
 					maxAmplitude = 0.6f;
 					minAmplitude = 0f;
@@ -143,8 +140,7 @@ public class Hugging : MonoBehaviour {
 					for (int i = 0; i < frequency; i++) {
 						SlimeFrequencyAndAmplitude.AddKey ((Random.Range (minBarSpeed, maxBarSpeed)), (Random.Range (minAmplitude, maxAmplitude)));
 					}
-				}  
-				else if (uiManager.currentSelectedHug == "Bear") {
+				} else if (uiManager.currentSelectedHug == "Bear") {
 					frequency = 8;
 					maxAmplitude = 1f;
 					minAmplitude = 0f;
@@ -153,8 +149,17 @@ public class Hugging : MonoBehaviour {
 					for (int i = 0; i < frequency; i++) {
 						SlimeFrequencyAndAmplitude.AddKey ((Random.Range (minBarSpeed, maxBarSpeed)), (Random.Range (minAmplitude, maxAmplitude)));
 					}
-				}
+				} else if (uiManager.currentSelectedHug == "Unknown") {
+					frequency = 100;
+					maxAmplitude = 1f;
+					minAmplitude = 0f;
+					maxBarSpeed = 30;
+					minBarSpeed = 10;
+					for (int i = 0; i < frequency; i++) {
+						SlimeFrequencyAndAmplitude.AddKey ((Random.Range (minBarSpeed, maxBarSpeed)), (Random.Range (minAmplitude, maxAmplitude)));
+					}
 					hasCreatedHug = true;
+				}
 			}
            
 
@@ -217,6 +222,10 @@ public class Hugging : MonoBehaviour {
 					{
 						colourController.SwapColors (TargetSlime);
 					}
+					if (uiManager.currentSelectedHug == "Unknown") 
+					{
+						colourController.SwapColors (TargetSlime);
+					}
 
 
 					if (gettingHugged) 
@@ -275,12 +284,12 @@ public class Hugging : MonoBehaviour {
         }
     }
 	
-	public void GettingHugged(GameObject OtherSlime)
-	{
-		currentSlime = OtherSlime;
-		gettingHugged = true;
+	//public void GettingHugged(GameObject OtherSlime)
+	//{
+	//	currentSlime = OtherSlime;
+	//	gettingHugged = true;
 
-	}
+	//}
 
     //Detects if the play interacts with another slime
    // void OnControllerColliderHit(ControllerColliderHit hit)

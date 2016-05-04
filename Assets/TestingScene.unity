@@ -703,7 +703,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dd41905a2c8416547982ea8b863256a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.7
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dd41905a2c8416547982ea8b863256a1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2255,7 +2255,7 @@ Transform:
   m_Children:
   - {fileID: 1893885315}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
 --- !u!1001 &569979176
 Prefab:
   m_ObjectHideFlags: 0
