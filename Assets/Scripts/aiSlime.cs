@@ -62,7 +62,7 @@ public class aiSlime : MonoBehaviour {
 	void Update () 
 	{
 		idleWaitTime = Random.Range (0.1f, 5.9f);
-		print (failed);
+		//print (failed);
 
 		if (failed) 
 		{
