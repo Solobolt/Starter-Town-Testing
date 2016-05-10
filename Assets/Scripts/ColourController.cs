@@ -234,6 +234,25 @@ public class ColourController : MonoBehaviour {
         SetColors();
     }
 
+	//Combines the two slimes colour and shares it between them
+	public void CombineColors(ColourController otherSlime)
+	{
+		//Adds up the slime colours
+		float mixRed = (redValue + otherSlime.redValue)/2.0f;
+		float mixGreen = (greenValue + otherSlime.greenValue)/2.0f;
+		float mixBlue = (blueValue + otherSlime.blueValue)/2.0f;
+
+		//Changes the other slimes colour to the averge
+		otherSlime.redValue = mixRed;
+		otherSlime.greenValue = mixGreen;
+		otherSlime.blueValue = mixBlue;
+
+		//Stores the players color
+		redValue = mixRed;
+		blueValue = mixBlue;
+		greenValue = mixGreen;
+	}
+
     //Slowly Mixes the two limes colors
     public void MixColors(ColourController otherSlime)
     {

@@ -31,17 +31,19 @@ public class GateController : MonoBehaviour {
 	}
 
     //Opens the gate if the player is the correct Color
-    void OnCollisionEnter(Collision coll)
+	void OnTriggerEnter(Collider coll)
     {
-        print("Hit");
+        print("GateController Hit");
 
         //Checks that it is the player interacting with the door
         if(coll.gameObject.tag == "Player")
         {
+			print ("GateController Color Check");
             //Checks wether or not the player has the necicary colors to open tyhe door
             colorController = coll.gameObject.GetComponent<ColourController>();
             if(colorController.redValue >= redReq && colorController.blueValue >= blueReq && colorController.greenValue >= greenReq)
             {
+				print ("Door is open");
                 isOpen = true;
                 colorController.CleanSlime();
             }
